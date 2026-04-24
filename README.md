@@ -40,3 +40,8 @@ CityLife 是一个面向城市本地生活场景的 Java 学习项目：用户�
 `https://github.com/MagicToDo/hm-dianping`
 
 如将本项目用于公开展示，请同时遵守上游项目及其依赖的许可证与署名要求。
+
+## 登录与用户会话
+
+用户通过短信验证码完成登录，服务端使用 Redis 保存登录凭证，并通过拦截器刷新活跃用户的过期时间。核心代码位于 `UserController`、`UserServiceImpl`、`LoginInterceptor` 和 `RefreshTokenInterceptor`。
+
