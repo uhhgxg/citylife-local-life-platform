@@ -44,4 +44,7 @@ CityLife 是一个面向城市本地生活场景的 Java 学习项目：用户�
 ## 登录与用户会话
 
 用户通过短信验证码完成登录，服务端使用 Redis 保存登录凭证，并通过拦截器刷新活跃用户的过期时间。核心代码位于 `UserController`、`UserServiceImpl`、`LoginInterceptor` 和 `RefreshTokenInterceptor`。
+## 商户发现与分页缓存
+
+首页按照商户类型查询门店，详情页通过缓存减少数据库访问。查询链路集中在 `ShopController`、`ShopServiceImpl` 与 `CacheClient`，适合用来观察缓存键设计、序列化和过期时间的取舍。
 
