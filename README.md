@@ -53,4 +53,7 @@ CityLife 是一个面向城市本地生活场景的 Java 学习项目：用户�
 ## 限时优惠券与秒杀下单
 
 CityLife 将优惠券库存和用户下单链路作为高并发练习场景：用户在活动窗口内抢券，服务端校验库存、生成订单并避免同一用户重复下单。相关代码位于 `VoucherController` 和 `VoucherOrderServiceImpl`。
+## Lua 原子操作与超卖治理
+
+库存扣减和重复下单判断需要尽量在 Redis 内完成原子校验，项目通过 `seckill.lua` 将多步判断合并，减少并发窗口；`unlock.lua` 用于安全释放分布式锁。
 
