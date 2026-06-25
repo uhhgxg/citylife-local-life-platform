@@ -11,9 +11,17 @@ public class  RedissonConfig {
 
     @Bean
     public RedissonClient redissonClient(){
-        // 配置
+        String host = System.getenv().getOrDefault("REDIS_HOST", "127.0.0.1");
+        String port = System.getenv().getOrDefault("REDIS_PORT", "6379");
+        String password = System.getenv().getOrDefault("REDIS_PASSWORD", "");
+
         Config config = new Config();
-        config.useSingleServer().setAddress("redis://192.168.150.101:6379").setPassword("123321");
+        org.redisson.config.SingleServerConfig server = config.useSingleServer()
+                .setAddress("redis://" + host + ":" + port);
+        if (!password.isEmpty()) {
+            server.setPassword(password);
+        }
+
         // 创建RedissonClient对象
         return Redisson.create(config);
     }
