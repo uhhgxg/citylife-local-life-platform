@@ -25,13 +25,13 @@ CityLife 是一个面向城市本地生活场景的 Java 学习项目：用户�
 ## 快速开始
 
 1. 准备 Java 8、Maven、MySQL 和 Redis。
-2. 初始化 `src/main/resources/db/hmdp.sql`。
+2. 创建 `citylife` 数据库并初始化 `src/main/resources/db/citylife.sql`。
 3. 根据本地环境设置 `MYSQL_URL`、`MYSQL_USERNAME`、`MYSQL_PASSWORD`、`REDIS_HOST`、`REDIS_PORT` 和 `REDIS_PASSWORD`。
 4. 执行 `mvn spring-boot:run`，服务默认运行在 `8081` 端口。
 
 ## 学习重点
 
-建议按“登录 → 商户查询与缓存 → 秒杀 → 探店互动 → 工程化治理”的顺序阅读源码，重点关注 `service`、`utils`、`config` 和 `resources` 目录。
+建议按“登录 → 商户查询与缓存 → 秒杀 → 探店互动 → 工程化治理”的顺序阅读源码，重点关注 `com.citylife.service`、`com.citylife.utils`、`com.citylife.config` 和 `resources` 目录。
 
 ## 来源与使用说明
 
